@@ -5,6 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Data
 @Entity
@@ -35,6 +38,14 @@ public class Users {
     @Column(name = "user_password", nullable = false)
     @Size(max = 50, message = "password cannot up to 50 char")
     private String password;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
 
 
 }
