@@ -1,4 +1,4 @@
-package com.spring_crud.entity;
+package com.spring_crud.models.entity;
 
 public enum ERole {
 
