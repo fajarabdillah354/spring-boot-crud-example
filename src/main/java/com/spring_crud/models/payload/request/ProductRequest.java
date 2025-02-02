@@ -1,4 +1,4 @@
-package com.spring_crud.payload.request;
+package com.spring_crud.models.payload.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.NoArgsConstructor;
