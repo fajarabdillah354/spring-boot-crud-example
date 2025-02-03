@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "roles")
-public class Role {
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -15,11 +15,11 @@ public class Role {
     @Column(length = 20)
     private ERole name;
 
-    public Role(ERole name) {
+    public RoleEntity(ERole name) {
         this.name = name;
     }
 
-    public Role() {
+    public RoleEntity() {
     }
 
     public String getId() {
