@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "products")
-public class Products {
+public class ProductEntity {
 
 
     @Id
