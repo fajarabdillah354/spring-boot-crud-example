@@ -19,7 +19,7 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "user_email")
         }
 )
-public class Users {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -40,21 +40,21 @@ public class Users {
     @Size(max = 50, message = "password cannot up to 50 char")
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
-    private Set<Role> roles = new HashSet<>();
+    private Set<RoleEntity> roleEntities = new HashSet<>();
 
-    public Users(String email, String password, String username) {
+    public UserEntity(String email, String password, String username) {
         this.email = email;
         this.password = password;
         this.username = username;
     }
 
-    public Users() {
+    public UserEntity() {
     }
 
     public String getEmail() {
@@ -81,12 +81,12 @@ public class Users {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Set<RoleEntity> getRoleEntities() {
+        return roleEntities;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRoleEntities(Set<RoleEntity> roleEntities) {
+        this.roleEntities = roleEntities;
     }
 
     public String getUsername() {
