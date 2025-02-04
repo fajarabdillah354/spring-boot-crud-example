@@ -11,13 +11,10 @@ public class RoleEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private ERole name;
-
-    public RoleEntity(ERole name) {
-        this.name = name;
-    }
 
     public RoleEntity() {
     }
