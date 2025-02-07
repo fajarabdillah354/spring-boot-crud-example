@@ -26,19 +26,16 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @NotBlank
+
     @Column(name = "user_email", nullable = false)
-    @Size(max = 50, message = "email cannot up to 50 char")
     private String email;
 
-    @NotBlank
+
     @Column(name = "user_username", nullable = false)
-    @Size(max = 50, message = "username cannot up to 50 char")
     private String username;
 
-    @NotBlank
+
     @Column(name = "user_password", nullable = false)
-    @Size(max = 50, message = "password cannot up to 50 char")
     private String password;
 
     @JsonManagedReference
