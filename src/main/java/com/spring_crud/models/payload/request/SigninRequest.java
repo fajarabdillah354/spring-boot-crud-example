@@ -3,25 +3,24 @@ package com.spring_crud.models.payload.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.*;
 
 
-public class LoginRequest {
+public class SigninRequest {
 
-    public LoginRequest(String password, String username) {
+    public SigninRequest(String password, String username) {
         this.password = password;
         this.username = username;
     }
 
-    public LoginRequest() {
+    public SigninRequest() {
     }
 
-    @NotBlank(message = "username cannot not blank")
-    @Size(min = 8, max = 20)
+    @NotBlank(message = "username cannot blank")
+    @Size(min = 3, max = 20)
     private String username;
 
-    @NotBlank
-    @Size(min = 8, max = 25)
+    @NotBlank(message = "password cannot blank")
+    @Size(min = 4, max = 25)
     private String password;
 
     public String getPassword() {
