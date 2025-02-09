@@ -1,6 +1,5 @@
 package com.spring_crud.models.payload.response;
 
-import com.spring_crud.SpringBootCrudApplication;
 import com.spring_crud.models.entity.UserEntity;
 import lombok.NoArgsConstructor;
 
