@@ -1,0 +1,42 @@
+
+
+spring:
+  application:
+    name: spring-boot-crud
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: pwd123
+    url: jdbc:mysql://localhost:3306/spring_crud
+    username: fajar
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format-sql: true
+    show-sql: true
+
+
+server:
+  port: 8000
+
+logging:
+  level:
+    web: DEBUG
+    org.springframework.security: DEBUG
+
+codejar:
+  security:
+    secret-key: 543bc1d4fa6a8e275c2e75258eebe70b7495bf2e3d068eb01b0e66920dc52496
+    jwt-expiration: 3600000
+
+#security:
+#  jwt:
+#    jwtSecret-key: 543bc1d4fa6a8e275c2e75258eebe70b7495bf2e3d068eb01b0e66920dc52496
+#    expiration-time: 3600000
+#    jwtCookies-key: codejar
